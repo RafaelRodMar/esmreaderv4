@@ -1,0 +1,18 @@
+{
+    "fnt": {
+        "font": "sansation.ttf"
+    },
+    "ico": {
+        "lchicken": "henway.ico",
+        "lhead": "henway_sm.ico"
+    },
+    "img": {
+	"arrow-up": "arrow-up.png",
+	"arrow-down": "arrow-down.png",
+	"arrow-left": "arrow-left.png",
+	"arrow-right": "arrow-right.png"
+    },
+    "snd": {
+        "bok": "bok.wav"
+    }
+}
