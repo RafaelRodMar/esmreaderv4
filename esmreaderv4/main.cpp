@@ -17,7 +17,6 @@
 #include <random>
 
 #include "esmreader.cpp"
-#include "visualizers.cpp"
 
 class Rnd {
 public:
