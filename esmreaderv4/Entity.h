@@ -209,20 +209,18 @@ class Clabel : public Entity {
 public:
 
 	std::string m_text = "";
-	std::string m_font = "";
 
 	Clabel() {
 		m_name = "Clabel";
 	}
 
-	void settings(const string &Texture, Vector2D pos, Vector2D vel, int Width, int Height, int nFrames,
-		int row, int cframe, double Angle, int radius, std::string text, std::string font, bool autoSize);
-	//b->buttonSettings("button", Vector2D(themex,themey), Vector2D(0,0), 100,50, 0,0,0,0.0,0, themes[i], "font", true);
+	void ClabelSettings(Vector2D pos, int width, int height, std::string text);
+	void ClabelSettings(const string &Texture, Vector2D pos, Vector2D vel, int Width, int Height, int nFrames,
+		int row, int cframe, double Angle, int radius, std::string text, std::string font);
 
 	void update();
 	void draw();
 	void handleEvents();
 
-	void autoSize();
 	bool mouseOver = false;
 };
