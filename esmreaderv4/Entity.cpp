@@ -24,82 +24,82 @@ void Entity::draw()
 		m_currentRow, m_currentFrame, Game::Instance()->getRenderer(), m_angle, m_alpha, SDL_FLIP_NONE);
 }
 
-void  asteroid::update()
-{
-	m_position.m_x += m_velocity.m_x;
-	m_position.m_y += m_velocity.m_y;
-
-	if (m_position.m_x > Game::Instance()->getGameWidth()) m_position.m_x = 0;
-	if (m_position.m_x < 0) m_position.m_x = Game::Instance()->getGameWidth();
-	if (m_position.m_y > Game::Instance()->getGameHeight()) m_position.m_y = 0;
-	if (m_position.m_y < 0) m_position.m_y = Game::Instance()->getGameHeight();
-
-	m_currentFrame = int(((SDL_GetTicks() / (100)) % m_numFrames));
-}
-
-void bullet::update()
-{
-	m_velocity.m_x = cos(m_angle*DEGTORAD) * 6;
-	m_velocity.m_y = sin(m_angle*DEGTORAD) * 6;
-	// angle+=rand()%6-3;
-	m_position.m_x += m_velocity.m_x;
-	m_position.m_y += m_velocity.m_y;
-
-	if (m_position.m_x > Game::Instance()->getGameWidth() || m_position.m_x<0 || m_position.m_y>Game::Instance()->getGameHeight() || m_position.m_y < 0) m_life = 0;
-
-	m_currentFrame = int(((SDL_GetTicks() / (100)) % m_numFrames));
-}
-
-void bullet::draw()
-{
-	AssetsManager::Instance()->drawFrame(m_textureID, m_position.m_x, m_position.m_y, m_width, m_height,
-		m_currentRow, m_currentFrame, Game::Instance()->getRenderer(), m_angle+90, m_alpha, SDL_FLIP_NONE);
-}
-
-void player::handleEvents(){
-	if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_RIGHT)) m_velocity.m_x = 2;
-	if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_LEFT)) m_velocity.m_x = -2;
-	if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_UP)) m_velocity.m_y = -2;
-	if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_DOWN)) m_velocity.m_y = 2;
-}
-
-void player::update()
-{
-	m_position += m_velocity;
-
-	m_velocity = Vector2D(0, 0);
-	if (m_position.m_x > Game::Instance()->getGameWidth()) m_position.m_x = Game::Instance()->getGameWidth();
-	if (m_position.m_x < 0) m_position.m_x = 0;
-	if (m_position.m_y > Game::Instance()->getGameHeight()) m_position.m_y = Game::Instance()->getGameHeight();
-	if (m_position.m_y < 0) m_position.m_y = 0;
-}
-
-void player::draw()
-{
-	AssetsManager::Instance()->drawFrame(m_textureID, m_position.m_x, m_position.m_y, m_width, m_height, 
-		m_currentRow, m_currentFrame, Game::Instance()->getRenderer(), m_angle, m_alpha, SDL_FLIP_NONE);
-
-	if (m_shield)
-	{
-		AssetsManager::Instance()->drawFrame("shield", m_position.m_x, m_position.m_y, 40, 40, 0, 0, 
-			Game::Instance()->getRenderer(), 0, m_alpha / 2, SDL_FLIP_NONE);
-	}
-}
-
-void car::update()
-{
-	m_position.m_y += m_velocity.m_y;
-
-	if (m_position.m_y < 0)
-	{
-		m_position.m_y = Game::Instance()->getGameHeight();
-	}
-	else
-	{
-		if (m_position.m_y > Game::Instance()->getGameHeight())
-			m_position.m_y = 0;
-	}
-}
+//void  asteroid::update()
+//{
+//	m_position.m_x += m_velocity.m_x;
+//	m_position.m_y += m_velocity.m_y;
+//
+//	if (m_position.m_x > Game::Instance()->getGameWidth()) m_position.m_x = 0;
+//	if (m_position.m_x < 0) m_position.m_x = Game::Instance()->getGameWidth();
+//	if (m_position.m_y > Game::Instance()->getGameHeight()) m_position.m_y = 0;
+//	if (m_position.m_y < 0) m_position.m_y = Game::Instance()->getGameHeight();
+//
+//	m_currentFrame = int(((SDL_GetTicks() / (100)) % m_numFrames));
+//}
+//
+//void bullet::update()
+//{
+//	m_velocity.m_x = cos(m_angle*DEGTORAD) * 6;
+//	m_velocity.m_y = sin(m_angle*DEGTORAD) * 6;
+//	// angle+=rand()%6-3;
+//	m_position.m_x += m_velocity.m_x;
+//	m_position.m_y += m_velocity.m_y;
+//
+//	if (m_position.m_x > Game::Instance()->getGameWidth() || m_position.m_x<0 || m_position.m_y>Game::Instance()->getGameHeight() || m_position.m_y < 0) m_life = 0;
+//
+//	m_currentFrame = int(((SDL_GetTicks() / (100)) % m_numFrames));
+//}
+//
+//void bullet::draw()
+//{
+//	AssetsManager::Instance()->drawFrame(m_textureID, m_position.m_x, m_position.m_y, m_width, m_height,
+//		m_currentRow, m_currentFrame, Game::Instance()->getRenderer(), m_angle+90, m_alpha, SDL_FLIP_NONE);
+//}
+//
+//void player::handleEvents(){
+//	if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_RIGHT)) m_velocity.m_x = 2;
+//	if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_LEFT)) m_velocity.m_x = -2;
+//	if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_UP)) m_velocity.m_y = -2;
+//	if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_DOWN)) m_velocity.m_y = 2;
+//}
+//
+//void player::update()
+//{
+//	m_position += m_velocity;
+//
+//	m_velocity = Vector2D(0, 0);
+//	if (m_position.m_x > Game::Instance()->getGameWidth()) m_position.m_x = Game::Instance()->getGameWidth();
+//	if (m_position.m_x < 0) m_position.m_x = 0;
+//	if (m_position.m_y > Game::Instance()->getGameHeight()) m_position.m_y = Game::Instance()->getGameHeight();
+//	if (m_position.m_y < 0) m_position.m_y = 0;
+//}
+//
+//void player::draw()
+//{
+//	AssetsManager::Instance()->drawFrame(m_textureID, m_position.m_x, m_position.m_y, m_width, m_height, 
+//		m_currentRow, m_currentFrame, Game::Instance()->getRenderer(), m_angle, m_alpha, SDL_FLIP_NONE);
+//
+//	if (m_shield)
+//	{
+//		AssetsManager::Instance()->drawFrame("shield", m_position.m_x, m_position.m_y, 40, 40, 0, 0, 
+//			Game::Instance()->getRenderer(), 0, m_alpha / 2, SDL_FLIP_NONE);
+//	}
+//}
+//
+//void car::update()
+//{
+//	m_position.m_y += m_velocity.m_y;
+//
+//	if (m_position.m_y < 0)
+//	{
+//		m_position.m_y = Game::Instance()->getGameHeight();
+//	}
+//	else
+//	{
+//		if (m_position.m_y > Game::Instance()->getGameHeight())
+//			m_position.m_y = 0;
+//	}
+//}
 
 void Button::handleEvents(){
 	/*if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_RIGHT)) m_velocity.m_x = 2;
@@ -167,11 +167,12 @@ void Button::autoSize()
 	m_height = height + 10;
 }
 
-void Button::buttonSettings(const string &Texture, Vector2D pos, Vector2D vel, int Width, int Height, int nFrames, 
+Button::Button(const string &Texture, Vector2D pos, Vector2D vel, int Width, int Height, int nFrames, 
 						int row, int cframe, double Angle, int radius, std::string text, std::string font, bool autosize){
+	m_name = "Button";
 	m_text = text;
 	m_font = font;
-	settings(Texture, pos,vel, Width, Height, nFrames, row, cframe, Angle, radius);
+	Entity(Texture, pos,vel, Width, Height, nFrames, row, cframe, Angle, radius);
 	if( autosize == true) autoSize();
 }
 

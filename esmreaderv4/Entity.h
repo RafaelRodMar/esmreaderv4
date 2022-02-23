@@ -46,9 +46,18 @@ public:
 	{
 		m_life = true;
 		m_shield = false;
+		m_textureID = "";
+		m_position = Vector2D(0, 0);
+		m_velocity = Vector2D(0,0);
+		m_width = 0; m_height = 0;
+		m_angle = 0.0;
+		m_radius = 0;
+		m_numFrames = 0;
+		m_currentRow = 0;
+		m_currentFrame = 0;
 	}
 
-	void settings(const string &Texture, Vector2D pos, Vector2D vel, int Width, int Height, int nFrames, int row, int cframe, double Angle, int radius)
+	Entity(const string &Texture, Vector2D pos, Vector2D vel, int Width, int Height, int nFrames, int row, int cframe, double Angle, int radius)
 	{
 		m_textureID = Texture;
 		m_position = pos;
@@ -68,59 +77,59 @@ public:
 	virtual ~Entity() {};
 };
 
-class car : public Entity
-{
-public:
-	car()
-	{
-		m_name = "car";
-	}
-
-	void update();
-};
-
-
-class asteroid : public Entity
-{
-public:
-	asteroid()
-	{
-		m_velocity.m_x = rand() % 8 - 4;
-		m_velocity.m_y = rand() % 8 - 4;
-		m_name = "asteroid";
-	}
-
-	void  update();
-
-};
-
-class bullet : public Entity
-{
-public:
-	bullet()
-	{
-		m_name = "bullet";
-	}
-
-	void update();
-	void draw();
-};
-
-
-class player : public Entity
-{
-public:
-
-	player()
-	{
-		m_name = "player";
-	}
-
-	void update();
-	void draw();
-	void handleEvents();
-
-};
+//class car : public Entity
+//{
+//public:
+//	car()
+//	{
+//		m_name = "car";
+//	}
+//
+//	void update();
+//};
+//
+//
+//class asteroid : public Entity
+//{
+//public:
+//	asteroid()
+//	{
+//		m_velocity.m_x = rand() % 8 - 4;
+//		m_velocity.m_y = rand() % 8 - 4;
+//		m_name = "asteroid";
+//	}
+//
+//	void  update();
+//
+//};
+//
+//class bullet : public Entity
+//{
+//public:
+//	bullet()
+//	{
+//		m_name = "bullet";
+//	}
+//
+//	void update();
+//	void draw();
+//};
+//
+//
+//class player : public Entity
+//{
+//public:
+//
+//	player()
+//	{
+//		m_name = "player";
+//	}
+//
+//	void update();
+//	void draw();
+//	void handleEvents();
+//
+//};
 
 class Button : public Entity{
 	public:
@@ -132,7 +141,7 @@ class Button : public Entity{
 		m_name = "Button";
 	}
 
-	void buttonSettings(const string &Texture, Vector2D pos, Vector2D vel, int Width, int Height, int nFrames, 
+	Button(const string &Texture, Vector2D pos, Vector2D vel, int Width, int Height, int nFrames, 
 						int row, int cframe, double Angle, int radius, std::string text, std::string font, bool autoSize);
 
 	void update();

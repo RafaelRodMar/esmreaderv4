@@ -164,9 +164,15 @@ bool Game::init(const char* title, int xpos, int ypos, int width,
 	//showControl->settings("showControl", Vector2D(0, 150), Vector2D(0, 0), 1, 1, 0, 0, 0, 0.0, 0);
 	//entities.push_back(showControl);
 
-	Clabel* label = new Clabel();
-	label->ClabelSettings(Vector2D(0, 0), 100, 100, "Hello World");
+	Clabel* label = new Clabel(Vector2D(0, 0), 100, 100, "Hello World 1");
 	entities.push_back(label);
+
+	Ccontainer* container = new Ccontainer(Vector2D(100, 100), 100, 100, "container 1");
+	entities.push_back(container);
+	std::cout << "container x,y " << to_string(container->m_position.m_x) << "," << to_string(container->m_position.m_y) << std::endl;
+
+	Clabel* label2 = new Clabel(Vector2D(0, 0), 20, 20, "Hello World 2");
+	container->addEntity(label2);
 
 	state = GAME;
 

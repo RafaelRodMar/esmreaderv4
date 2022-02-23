@@ -11,12 +11,18 @@ public:
 		m_name = "Ccontainer";
 	}
 
-	void CcontainerSettings(Vector2D pos, int width, int height, std::string text);
-	void CcontainerSettings(const string &Texture, Vector2D pos, Vector2D vel, int Width, int Height, int nFrames,
+	Ccontainer(Vector2D pos, int width, int height, std::string text);
+	Ccontainer(const string &Texture, Vector2D pos, Vector2D vel, int Width, int Height, int nFrames,
 		int row, int cframe, double Angle, int radius, std::string text, std::string font);
+	~Ccontainer() {
+		for (auto x : entities) delete(x);
+		entities.clear();
+	}
 
 	void update();
 	void draw();
 	void handleEvents();
+
+	void addEntity(Entity* e);
 };
 

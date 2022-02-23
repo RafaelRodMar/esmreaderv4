@@ -57,8 +57,8 @@ private:
 	SDL_Window* m_pWindow;
 	SDL_Renderer* m_pRenderer;
 
-	player *p;
-	car *c1, *c2, *c3, *c4;
+	/*player *p;
+	car *c1, *c2, *c3, *c4;*/
 	//Button *b1, *b2;
 	int state = -1;
 	std::vector<int> vhiscores;
