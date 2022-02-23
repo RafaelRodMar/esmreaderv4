@@ -168,11 +168,11 @@ void Button::autoSize()
 }
 
 Button::Button(const string &Texture, Vector2D pos, Vector2D vel, int Width, int Height, int nFrames, 
-						int row, int cframe, double Angle, int radius, std::string text, std::string font, bool autosize){
+						int row, int cframe, double Angle, int radius, std::string text, std::string font, bool autosize) : 
+						Entity(Texture, pos, vel, Width, Height, nFrames, row, cframe, Angle, radius) {
 	m_name = "Button";
 	m_text = text;
 	m_font = font;
-	Entity(Texture, pos,vel, Width, Height, nFrames, row, cframe, Angle, radius);
 	if( autosize == true) autoSize();
 }
 

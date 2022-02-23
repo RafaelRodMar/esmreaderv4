@@ -169,10 +169,11 @@ bool Game::init(const char* title, int xpos, int ypos, int width,
 
 	Ccontainer* container = new Ccontainer(Vector2D(100, 100), 100, 100, "container 1");
 	entities.push_back(container);
-	std::cout << "container x,y " << to_string(container->m_position.m_x) << "," << to_string(container->m_position.m_y) << std::endl;
 
 	Clabel* label2 = new Clabel(Vector2D(0, 0), 20, 20, "Hello World 2");
 	container->addEntity(label2);
+	Clabel* label3 = new Clabel(Vector2D(0, 20), 20, 20, "Hello World 3");
+	container->addEntity(label3);
 
 	state = GAME;
 
