@@ -20,6 +20,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssetsManager.cpp" />
+    <ClCompile Include="Ccontainer.cpp" />
+    <ClCompile Include="Clabel.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="esmreader.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
@@ -31,6 +33,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AssetsManager.h" />
+    <ClInclude Include="Ccontainer.h" />
+    <ClInclude Include="Clabel.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="esmreader.h" />
     <ClInclude Include="game.h" />

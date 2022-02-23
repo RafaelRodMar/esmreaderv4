@@ -136,59 +136,38 @@ bool Game::init(const char* title, int xpos, int ypos, int width,
 	AssetsManager::Instance()->loadAssetsJson(); //ahora con formato json
 	Mix_Volume(-1, 16); //adjust sound/music volume for all channels
 
-	/*p = new player();
-	p->settings("chicken", Vector2D(4, 175), Vector2D(0,0), 58, 58, 0, 0, 0, 0.0, 0);
-	entities.push_back(p);*/
+	//std::vector<std::string> themes = {"NPC", "Creature", "Leveled Creature", "Spellmaking", "Enchanting", "Alchemy", "Leveled Item", "Activator", "Apparatus", "Armor", 
+	//						"Body Part", "Book", "Clothing", "Container", "Door", "Ingredient", "Light", "Lockpick", "Misc Item", "Probe", "Repair Item", "Static", "Weapon",
+	//						"Cell", "Game Settings", "Global", "Class", "Faction", "Race", "Sound", "Skill", "Magic Effects", 
+	//						"Script", "Region", "Birthsign", "Landscape Texture", "Landscape", "Path Grid", 
+	//						"Sound Generator", "Spell", "Dialog"};
 
-	//car creation
-	/*c1 = new car();
-	c2 = new car();
-	c3 = new car();
-	c4 = new car();
-	c1->settings("car1", Vector2D(70, 0), Vector2D(0, 1), 74, 126, 0, 0, 0, 0.0, 0);
-	c2->settings("car2", Vector2D(160, 0), Vector2D(0, 2), 56, 126, 0, 0, 0, 0.0, 0);
-	c3->settings("car3", Vector2D(239, 400), Vector2D(0, -1), 73, 109, 0, 0, 0, 0.0, 0);
-	c4->settings("car4", Vector2D(329, 400), Vector2D(0, -3), 56, 126, 0, 0, 0, 0.0, 0);
-	entities.push_back(c1);
-	entities.push_back(c2);
-	entities.push_back(c3);
-	entities.push_back(c4);*/
+	//int themex = 0;
+	//int themey = 0;
+	//int incry = 0;
+	//Button* b;
+	//for(int i=0;i<themes.size();i++){
+	//	b = new Button();
 
-	/* b1 = new Button();
-	b2 = new Button();
-	b1->buttonSettings("button", Vector2D(0,0), Vector2D(0,0), 100,50, 0,0,0,0.0,0, "botón 1", "font", true);
-	b2->buttonSettings("button", Vector2D(200,200), Vector2D(0,0), 100,50, 0,0,0,0.0,0, "botón 2 extendido", "font", true);
-	entities.push_back(b1);
-	entities.push_back(b2); */
+	//	b->buttonSettings("button", Vector2D(themex,themey), Vector2D(0,0), 100,50, 0,0,0,0.0,0, themes[i], "font", true);
+	//	themex += b->m_width + 5;
+	//	if(themex > 520)
+	//	{
+	//		themex = 0;
+	//		themey += b->m_height + 5;
+	//	}
 
-	std::vector<std::string> themes = {"NPC", "Creature", "Leveled Creature", "Spellmaking", "Enchanting", "Alchemy", "Leveled Item", "Activator", "Apparatus", "Armor", 
-							"Body Part", "Book", "Clothing", "Container", "Door", "Ingredient", "Light", "Lockpick", "Misc Item", "Probe", "Repair Item", "Static", "Weapon",
-							"Cell", "Game Settings", "Global", "Class", "Faction", "Race", "Sound", "Skill", "Magic Effects", 
-							"Script", "Region", "Birthsign", "Landscape Texture", "Landscape", "Path Grid", 
-							"Sound Generator", "Spell", "Dialog"};
+	//	entities.push_back(b);
+	//}
 
-	int themex = 0;
-	int themey = 0;
-	int incry = 0;
-	Button* b;
-	for(int i=0;i<themes.size();i++){
-		b = new Button();
+	//showControl = new ShowControl;
+	//showControl->settings("showControl", Vector2D(0, 150), Vector2D(0, 0), 1, 1, 0, 0, 0, 0.0, 0);
+	//entities.push_back(showControl);
 
-		b->buttonSettings("button", Vector2D(themex,themey), Vector2D(0,0), 100,50, 0,0,0,0.0,0, themes[i], "font", true);
-		themex += b->m_width + 5;
-		if(themex > 520)
-		{
-			themex = 0;
-			themey += b->m_height + 5;
-		}
+	Clabel* label = new Clabel();
+	label->ClabelSettings(Vector2D(0, 0), 100, 100, "Hello World");
+	entities.push_back(label);
 
-		entities.push_back(b);
-	}
-
-	showControl = new ShowControl;
-	showControl->settings("showControl", Vector2D(0, 150), Vector2D(0, 0), 1, 1, 0, 0, 0, 0.0, 0);
-	entities.push_back(showControl);
-	
 	state = GAME;
 
 	//crear el archivo json
@@ -215,10 +194,10 @@ bool Game::init(const char* title, int xpos, int ypos, int width,
 	std::ofstream o("assets.json");
 	o << std::setw(4) << j << std::endl;*/
 
-	Stopwatch st;
+	/*Stopwatch st;
 	st.Start(0);
 	readESM("c:/JuegosEstudio/Morrowind/Data Files/morrowind.esm");
-	std::cout << "Time file read: " << st.EllapsedMilliseconds() << std::endl;
+	std::cout << "Time file read: " << st.EllapsedMilliseconds() << std::endl;*/
 	//68759 tiempo tienda
 
 	return true;

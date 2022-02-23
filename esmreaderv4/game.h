@@ -8,6 +8,8 @@
 #include "AssetsManager.h"
 #include "InputHandler.h"
 #include "Entity.h"
+#include "Clabel.h"
+#include "Ccontainer.h"
 
 ////Game States
 enum GAMESTATES {SPLASH, MENU, LOAD_LEVEL, GAME, END_GAME};
