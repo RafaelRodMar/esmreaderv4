@@ -164,7 +164,7 @@ bool Game::init(const char* title, int xpos, int ypos, int width,
 	//showControl->settings("showControl", Vector2D(0, 150), Vector2D(0, 0), 1, 1, 0, 0, 0, 0.0, 0);
 	//entities.push_back(showControl);
 
-	Clabel* label = new Clabel(Vector2D(0, 0), 100, 100, "Hello World 1");
+	/*Clabel* label = new Clabel(Vector2D(0, 0), 100, 100, "Hello World 1");
 	entities.push_back(label);
 
 	Ccontainer* container = new Ccontainer(Vector2D(100, 100), 100, 100, "container 1");
@@ -173,7 +173,19 @@ bool Game::init(const char* title, int xpos, int ypos, int width,
 	Clabel* label2 = new Clabel(Vector2D(0, 0), 20, 20, "Hello World 2");
 	container->addEntity(label2);
 	Clabel* label3 = new Clabel(Vector2D(0, 20), 20, 20, "Hello World 3");
-	container->addEntity(label3);
+	container->addEntity(label3);*/
+
+	//Inspector container
+	Ccontainer* inspector = new Ccontainer(Vector2D(Game::Instance()->getGameWidth() - 500, 0), 500, Game::Instance()->getGameHeight(), "Inspector");
+	Clabel* inspLabel = new Clabel(Vector2D(0, 0), 20, 20, "Inspector");
+	inspector->addEntity(inspLabel);
+	entities.push_back(inspector);
+
+	//Hierarchy container
+	Ccontainer* hierarchy = new Ccontainer(Vector2D(0, 0), 370, 600, "Hierarchy");
+	Clabel* hierarLabel = new Clabel(Vector2D(0, 0), 20, 20, "Hierarchy");
+	hierarchy->addEntity(hierarLabel);
+	entities.push_back(hierarchy);
 
 	state = GAME;
 
@@ -212,9 +224,9 @@ bool Game::init(const char* title, int xpos, int ypos, int width,
 
 void Game::render()
 {
-	SDL_SetRenderDrawColor(Game::Instance()->getRenderer(), 255, 255, 255, 0);
+	SDL_SetRenderDrawColor(Game::Instance()->getRenderer(), 0, 0, 0, 0); //black background
 	SDL_RenderClear(m_pRenderer); // clear the renderer to the draw color
-	SDL_SetRenderDrawColor(Game::Instance()->getRenderer(), 0, 0, 0, 0);
+	SDL_SetRenderDrawColor(Game::Instance()->getRenderer(), 255, 255, 255, 0); //white for text
 
 	//AssetsManager::Instance()->draw("highway", 0, 0, 465, 400, m_pRenderer, SDL_FLIP_NONE);
 
@@ -1628,7 +1640,7 @@ int main(int argc, char* args[])
 	Uint32 frameStart, frameTime;
 
 	std::cout << "game init attempt...\n";
-	if (Game::Instance()->init("Elder Scrolls Master (ESM) file reader", 100, 100, 1024, 768,
+	if (Game::Instance()->init("Elder Scrolls Master (ESM) file reader", 100, 100, 1286, 768,
 		false))
 	{
 		std::cout << "game init success!\n";

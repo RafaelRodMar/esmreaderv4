@@ -14,6 +14,15 @@ void Ccontainer::update()
 
 void Ccontainer::draw()
 {
+	SDL_SetRenderDrawColor(Game::Instance()->getRenderer(), 56, 56, 56, 0);
+	SDL_Rect* rect = new SDL_Rect();
+	rect->x = m_position.m_x;
+	rect->y = m_position.m_y;
+	rect->w = m_width;
+	rect->h = m_height;
+	SDL_RenderFillRect(Game::Instance()->getRenderer(), rect);
+	delete(rect);
+
 	for (auto i : entities)
 		i->draw();
 }

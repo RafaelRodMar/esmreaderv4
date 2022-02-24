@@ -11,7 +11,7 @@ void Clabel::update()
 void Clabel::draw()
 {
 	//CHANGE THIS. Create a texture in the constructor and store it until label destruction.
-	AssetsManager::Instance()->Text(m_text, "font", m_position.m_x, m_position.m_y, SDL_Color({ 0,0,0,0 }), Game::Instance()->getRenderer());
+	AssetsManager::Instance()->Text(m_text, "font", m_position.m_x, m_position.m_y, SDL_Color({ 255,255,255,0 }), Game::Instance()->getRenderer());
 }
 
 Clabel::Clabel(const string &Texture, Vector2D pos, Vector2D vel, int Width, int Height, int nFrames,
