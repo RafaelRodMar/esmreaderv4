@@ -24,6 +24,7 @@ public:
 	std::string m_textureID;
 
 	//common boolean variables
+	bool m_visible = true;
 	bool m_bUpdating = false;
 	bool m_bDead = false;
 	bool m_bDying = false;
@@ -76,60 +77,6 @@ public:
 
 	virtual ~Entity() {};
 };
-
-//class car : public Entity
-//{
-//public:
-//	car()
-//	{
-//		m_name = "car";
-//	}
-//
-//	void update();
-//};
-//
-//
-//class asteroid : public Entity
-//{
-//public:
-//	asteroid()
-//	{
-//		m_velocity.m_x = rand() % 8 - 4;
-//		m_velocity.m_y = rand() % 8 - 4;
-//		m_name = "asteroid";
-//	}
-//
-//	void  update();
-//
-//};
-//
-//class bullet : public Entity
-//{
-//public:
-//	bullet()
-//	{
-//		m_name = "bullet";
-//	}
-//
-//	void update();
-//	void draw();
-//};
-//
-//
-//class player : public Entity
-//{
-//public:
-//
-//	player()
-//	{
-//		m_name = "player";
-//	}
-//
-//	void update();
-//	void draw();
-//	void handleEvents();
-//
-//};
 
 class Button : public Entity{
 	public:

@@ -57,9 +57,6 @@ private:
 	SDL_Window* m_pWindow;
 	SDL_Renderer* m_pRenderer;
 
-	/*player *p;
-	car *c1, *c2, *c3, *c4;*/
-	//Button *b1, *b2;
 	int state = -1;
 	std::vector<int> vhiscores;
 	int lives, score;
@@ -67,7 +64,6 @@ private:
 	std::list<Entity*> entities;
 	bool isCollide(Entity *a, Entity *b);
 	bool isCollideRect(Entity *a, Entity *b);
-	//std::vector<GameObject*> m_gameObjects;
 
 	bool m_bRunning;
 	int m_gameWidth;

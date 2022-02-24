@@ -132,92 +132,27 @@ bool Game::init(const char* title, int xpos, int ypos, int width,
 	InputHandler::Instance()->initialiseJoysticks();
 
 	//load images, sounds, music and fonts
-	//AssetsManager::Instance()->loadAssets();
 	AssetsManager::Instance()->loadAssetsJson(); //ahora con formato json
 	Mix_Volume(-1, 16); //adjust sound/music volume for all channels
 
-	//std::vector<std::string> themes = {"NPC", "Creature", "Leveled Creature", "Spellmaking", "Enchanting", "Alchemy", "Leveled Item", "Activator", "Apparatus", "Armor", 
-	//						"Body Part", "Book", "Clothing", "Container", "Door", "Ingredient", "Light", "Lockpick", "Misc Item", "Probe", "Repair Item", "Static", "Weapon",
-	//						"Cell", "Game Settings", "Global", "Class", "Faction", "Race", "Sound", "Skill", "Magic Effects", 
-	//						"Script", "Region", "Birthsign", "Landscape Texture", "Landscape", "Path Grid", 
-	//						"Sound Generator", "Spell", "Dialog"};
-
-	//int themex = 0;
-	//int themey = 0;
-	//int incry = 0;
-	//Button* b;
-	//for(int i=0;i<themes.size();i++){
-	//	b = new Button();
-
-	//	b->buttonSettings("button", Vector2D(themex,themey), Vector2D(0,0), 100,50, 0,0,0,0.0,0, themes[i], "font", true);
-	//	themex += b->m_width + 5;
-	//	if(themex > 520)
-	//	{
-	//		themex = 0;
-	//		themey += b->m_height + 5;
-	//	}
-
-	//	entities.push_back(b);
-	//}
-
-	//showControl = new ShowControl;
-	//showControl->settings("showControl", Vector2D(0, 150), Vector2D(0, 0), 1, 1, 0, 0, 0, 0.0, 0);
-	//entities.push_back(showControl);
-
-	/*Clabel* label = new Clabel(Vector2D(0, 0), 100, 100, "Hello World 1");
-	entities.push_back(label);
-
-	Ccontainer* container = new Ccontainer(Vector2D(100, 100), 100, 100, "container 1");
-	entities.push_back(container);
-
-	Clabel* label2 = new Clabel(Vector2D(0, 0), 20, 20, "Hello World 2");
-	container->addEntity(label2);
-	Clabel* label3 = new Clabel(Vector2D(0, 20), 20, 20, "Hello World 3");
-	container->addEntity(label3);*/
-
 	//Inspector container
 	Ccontainer* inspector = new Ccontainer(Vector2D(Game::Instance()->getGameWidth() - 500, 0), 500, Game::Instance()->getGameHeight(), "Inspector");
-	Clabel* inspLabel = new Clabel(Vector2D(0, 0), 20, 20, "Inspector");
+	Clabel* inspLabel = new Clabel(Vector2D(0, 0), 60, 20, "Inspector");
 	inspector->addEntity(inspLabel);
 	entities.push_back(inspector);
 
 	//Hierarchy container
 	Ccontainer* hierarchy = new Ccontainer(Vector2D(0, 0), 370, 600, "Hierarchy");
-	Clabel* hierarLabel = new Clabel(Vector2D(0, 0), 20, 20, "Hierarchy");
+	Clabel* hierarLabel = new Clabel(Vector2D(0, 0), 60, 20, "Hierarchy");
 	hierarchy->addEntity(hierarLabel);
 	entities.push_back(hierarchy);
 
 	state = GAME;
 
-	//crear el archivo json
-	/*nlohmann::json j;
-
-	j["fnt"]["font"] = "sansation.ttf";
-	j["ico"]["lchicken"] = "henway.ico";
-	j["ico"]["lhead"] = "henway_sm.ico";
-	j["img"]["car1"] = "car1.png";
-	j["img"]["car2"] = "car2.png";
-	j["img"]["car3"] = "car3.png";
-	j["img"]["car4"] = "car4.png";
-	j["img"]["chicken"] = "chicken.png";
-	j["img"]["chickenhead"] = "chickenhead.png";
-	j["img"]["highway"] = "highway.png";
-	j["mus"]["music"] = "music.ogg";
-	j["snd"]["bok"] = "bok.wav";
-	j["snd"]["carhorn1"] = "carhorn1.wav";
-	j["snd"]["carhorn2"] = "carhorn2.wav";
-	j["snd"]["celebrate"] = "celebrate.wav";
-	j["snd"]["gameover"] = "gameover.wav";
-	j["snd"]["squish"] = "squish.wav";
-
-	std::ofstream o("assets.json");
-	o << std::setw(4) << j << std::endl;*/
-
 	/*Stopwatch st;
 	st.Start(0);
 	readESM("c:/JuegosEstudio/Morrowind/Data Files/morrowind.esm");
 	std::cout << "Time file read: " << st.EllapsedMilliseconds() << std::endl;*/
-	//68759 tiempo tienda
 
 	return true;
 }
@@ -1527,53 +1462,6 @@ void Game::update()
 {
 	if (state == GAME)
 	{
-
-		//play some random car horns
-		/*if (rnd.getRndInt(0, 100) == 0)
-		{
-			if (rnd.getRndInt(0, 1) == 0)
-				AssetsManager::Instance()->playSound("carhorn1", 0);
-			else
-				AssetsManager::Instance()->playSound("carhorn2", 0);
-		}*/
-
-		// See if the chicken made it across
-		//if (p->m_position.m_x > 400.0)
-		//{
-		//	// Play a sound for the chicken making it safely across
-		//	//AssetsManager::Instance()->playSound("celebrate", 0);
-
-		//	// Move the chicken back to the start and add to the score
-		//	p->m_position.m_x = 4; p->m_position.m_y = 175;
-		//	score += 150;
-		//}
-
-		for (auto a : entities)
-		{
-			for (auto b : entities)
-			{
-				//if (a->m_name == "player" && b->m_name == "car")
-				//	if (isCollideRect(a, b))
-				//	{
-				//		lives--;
-				//		if (lives <= 0)
-				//		{
-				//			//AssetsManager::Instance()->playSound("gameover", 0);
-				//			state = END_GAME;
-				//		}
-				//		else
-				//		{
-				//			//AssetsManager::Instance()->playSound("squish", 0);
-				//		}
-
-				//		//relocate the chicken
-				//		p->m_position.m_x = 4; p->m_position.m_y = 175;
-				//		p->m_velocity.m_x = 0;
-				//		p->m_velocity.m_y = 0;
-				//	}
-			}
-		}
-
 		for (auto i = entities.begin(); i != entities.end(); i++)
 		{
 			Entity *e = *i;

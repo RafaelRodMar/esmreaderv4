@@ -6,14 +6,26 @@ void Ccontainer::handleEvents() {
 		i->handleEvents();
 }
 
-void Ccontainer::update()
-{
+void Ccontainer::update(){
 	for (auto i : entities)
 		i->update();
 }
 
-void Ccontainer::draw()
-{
+void Ccontainer::draw(){
+	//container don't allow to draw outside of it
+	SDL_Rect* actualClipRect = new SDL_Rect();
+	SDL_RenderGetClipRect(Game::Instance()->getRenderer(), actualClipRect);
+
+	//set the drawing zone to only inside container
+	SDL_Rect* containerRect = new SDL_Rect();
+	containerRect->x = m_position.m_x;
+	containerRect->y = m_position.m_y;
+	containerRect->w = m_width;
+	containerRect->h = m_height;
+	//only what is inside labelRect will be drawn
+	SDL_RenderSetClipRect(Game::Instance()->getRenderer(), containerRect);
+
+	//set background color for the container
 	SDL_SetRenderDrawColor(Game::Instance()->getRenderer(), 56, 56, 56, 0);
 	SDL_Rect* rect = new SDL_Rect();
 	rect->x = m_position.m_x;
@@ -25,6 +37,11 @@ void Ccontainer::draw()
 
 	for (auto i : entities)
 		i->draw();
+
+	//restore the render rect.
+	SDL_RenderSetClipRect(Game::Instance()->getRenderer(), actualClipRect);
+	delete(actualClipRect);
+	delete(containerRect);
 }
 
 Ccontainer::Ccontainer(const string &Texture, Vector2D pos, Vector2D vel, int Width, int Height, int nFrames,
