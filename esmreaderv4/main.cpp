@@ -86,6 +86,16 @@ bool Game::init(const char* title, int xpos, int ypos, int width,
 
 		std::cout << "SDL init success\n";
 		// init the window
+		
+		// set the window to the actual screen resolution
+		SDL_DisplayMode DM;
+		SDL_GetCurrentDisplayMode(0, &DM);
+
+		//most of the screen window
+		xpos = ypos = 50;
+		width = DM.w - 50;
+		height = DM.h - 100;
+
 		m_pWindow = SDL_CreateWindow(title, xpos, ypos,
 			width, height, flags);
 		if (m_pWindow != 0) // window init success
@@ -136,15 +146,17 @@ bool Game::init(const char* title, int xpos, int ypos, int width,
 	Mix_Volume(-1, 16); //adjust sound/music volume for all channels
 
 	//Inspector container
-	Ccontainer* inspector = new Ccontainer(Vector2D(Game::Instance()->getGameWidth() - 500, 0), 500, Game::Instance()->getGameHeight(), "Inspector");
+	inspector = new Ccontainer(Vector2D(Game::Instance()->getGameWidth() - 500, 0), 500, Game::Instance()->getGameHeight(), "Inspector");
 	Clabel* inspLabel = new Clabel(Vector2D(0, 0), 60, 20, "Inspector");
 	inspector->addEntity(inspLabel);
 	entities.push_back(inspector);
 
 	//Hierarchy container
-	Ccontainer* hierarchy = new Ccontainer(Vector2D(0, 0), 370, 600, "Hierarchy");
+	hierarchy = new Ccontainer(Vector2D(0, 0), 370, 600, "Hierarchy");
 	Clabel* hierarLabel = new Clabel(Vector2D(0, 0), 60, 20, "Hierarchy");
 	hierarchy->addEntity(hierarLabel);
+	Ctreeview* tree = new Ctreeview(Vector2D(0, 0), 100, 100);
+	hierarchy->addEntity(tree);
 	entities.push_back(hierarchy);
 
 	state = GAME;

@@ -9,6 +9,7 @@
 #include "InputHandler.h"
 #include "Entity.h"
 #include "Clabel.h"
+#include "Ctreeview.h"
 #include "Ccontainer.h"
 
 ////Game States
@@ -64,6 +65,9 @@ private:
 	std::list<Entity*> entities;
 	bool isCollide(Entity *a, Entity *b);
 	bool isCollideRect(Entity *a, Entity *b);
+
+	Ccontainer* hierarchy =  nullptr;
+	Ccontainer* inspector = nullptr;
 
 	bool m_bRunning;
 	int m_gameWidth;

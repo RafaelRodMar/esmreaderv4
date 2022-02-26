@@ -39,6 +39,9 @@
     <ClCompile Include="Ccontainer.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
+    <ClCompile Include="Ctreeview.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AssetsManager.h">
@@ -66,6 +69,9 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="Ccontainer.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="Ctreeview.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>

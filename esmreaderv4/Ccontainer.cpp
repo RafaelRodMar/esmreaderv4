@@ -60,6 +60,12 @@ Ccontainer::Ccontainer(Vector2D pos, int width, int height, std::string text) :
 void Ccontainer::addEntity(Entity* e) {
 	//position of entities are relative to container position.
 	e->m_position += m_position;
+	//add the position plus height of the last entity
+	if (entities.size() > 0)
+	{
+		e->m_position.m_y += entities.back()->m_position.m_y;
+		e->m_position.m_y += entities.back()->m_height;
+	}
 
 	entities.push_back(e);
 }
