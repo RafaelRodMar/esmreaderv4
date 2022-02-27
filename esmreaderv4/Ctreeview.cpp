@@ -13,7 +13,28 @@ Ctreeview::Ctreeview(const string &Texture, Vector2D pos, Vector2D vel, int Widt
 }
 
 void Ctreeview::handleEvents() {
+	Vector2D* v = InputHandler::Instance()->getMousePosition();
+	if (v->m_x > m_position.m_x && v->m_x < m_position.m_x + m_width &&
+		v->m_y > m_position.m_y && v->m_y < m_position.m_y + m_height)
+	{
+		//mouse wheel
+		if (InputHandler::Instance()->isMouseWheelUp())
+		{
+			if (index > 0) index -= 10;
+		}
+		if (InputHandler::Instance()->isMouseWheelDown())
+		{
+			if (index < data.size()) index += 10;
+		}
+		InputHandler::Instance()->setMouseWheelToFalse();
 
+		if (Game::Instance()->mouseClicked)
+		{
+			int y = v->m_y / 20 - 1;
+			selected = index + y;
+			if (selected > data.size()) selected = data.size() - 1;
+		}
+	}
 }
 
 void Ctreeview::update() {
@@ -22,7 +43,13 @@ void Ctreeview::update() {
 
 void Ctreeview::draw() {
 	//CHANGE THIS. Create a texture in the constructor and store it until label destruction.
-	AssetsManager::Instance()->Text("treeview", "font", m_position.m_x, m_position.m_y, SDL_Color({ 255,255,255,0 }), Game::Instance()->getRenderer());
+	int ypos = m_position.m_y;
+	for (int i = index; i < data.size(); i++) {
+		SDL_Color cl = SDL_Color({ 255,255,255,0});
+		if (i == selected) cl = SDL_Color({ 128,128,128,0 });
+		AssetsManager::Instance()->Text(data[i], "font", m_position.m_x, ypos, cl, Game::Instance()->getRenderer());
+		ypos += 20;
+	}
 }
 
 Ctreeview::~Ctreeview()

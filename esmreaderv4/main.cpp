@@ -92,7 +92,7 @@ bool Game::init(const char* title, int xpos, int ypos, int width,
 		SDL_GetCurrentDisplayMode(0, &DM);
 
 		//most of the screen window
-		xpos = ypos = 50;
+		xpos = ypos = 30;
 		width = DM.w - 50;
 		height = DM.h - 100;
 
@@ -156,15 +156,26 @@ bool Game::init(const char* title, int xpos, int ypos, int width,
 	Clabel* hierarLabel = new Clabel(Vector2D(0, 0), 60, 20, "Hierarchy");
 	hierarchy->addEntity(hierarLabel);
 	Ctreeview* tree = new Ctreeview(Vector2D(0, 0), 100, 100);
+	tree->m_width = hierarchy->m_width;
+	tree->m_height = hierarchy->m_height;
 	hierarchy->addEntity(tree);
 	entities.push_back(hierarchy);
 
 	state = GAME;
 
-	/*Stopwatch st;
+	Stopwatch st;
 	st.Start(0);
 	readESM("c:/JuegosEstudio/Morrowind/Data Files/morrowind.esm");
-	std::cout << "Time file read: " << st.EllapsedMilliseconds() << std::endl;*/
+	std::cout << "Time file read: " << st.EllapsedMilliseconds() << std::endl;
+
+	std::vector<std::string> cells;
+	for (int i = 0; i < vcell.size();i++) {
+		if (vcell[i].name == "")
+			cells.push_back(to_string(i) + " (no name) " + vcell[i].regionName);
+		else
+			cells.push_back(to_string(i) + " " + vcell[i].name + " " + vcell[i].regionName);
+	}
+	tree->setData(cells);
 
 	return true;
 }
