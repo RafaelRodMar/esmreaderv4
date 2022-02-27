@@ -2,11 +2,10 @@
 #include "Entity.h"
 
 struct CellNode {
-	int type = 0; //0 = cell, 1 = element of cell
-	int cellIndex = 0;
+	int cell = -1;
+	int element = -1;
 	std::string text;
-	bool showElements = false;
-	std::vector<std::string> elements;
+	bool show = true;
 };
 
 class Ctreeview : public Entity {

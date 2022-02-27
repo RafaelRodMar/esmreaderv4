@@ -171,8 +171,9 @@ bool Game::init(const char* title, int xpos, int ypos, int width,
 	std::vector<CellNode> cellNodes;
 	for (int i = 0; i < vcell.size(); i++) {
 		CellNode cn;
-		cn.type = 0;
-		cn.cellIndex = i;
+		cn.cell = i;
+		cn.element = -1;
+		cn.show = true;
 		if (vcell[i].name == "")
 		{
 			cn.text = to_string(i) + " (no name) " + vcell[i].regionName;
@@ -181,11 +182,15 @@ bool Game::init(const char* title, int xpos, int ypos, int width,
 		{
 			cn.text = to_string(i) + " " + vcell[i].name + " " + vcell[i].regionName;
 		}
+		cellNodes.push_back(cn);
 
 		for (int j = 0; j < vcell[i].persistentRefs.size(); j++) {
-			cn.elements.push_back(vcell[i].persistentRefs[j].name);
+			cn.cell = i;
+			cn.element = j;
+			cn.show = false;
+			cn.text = vcell[i].persistentRefs[j].name;
+			cellNodes.push_back(cn);
 		}
-		cellNodes.push_back(cn);
 	}
 
 	tree->setData(cellNodes);

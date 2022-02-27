@@ -44,17 +44,13 @@ void Ctreeview::update() {
 void Ctreeview::draw() {
 	int ypos = m_position.m_y;
 	for (int i = index; i < data.size(); i++) {
+		int xpos = m_position.m_x;
 		SDL_Color cl = SDL_Color({ 255,255,255,0 });
 		if (i == selected) cl = SDL_Color({ 128,128,128,0 });
-		AssetsManager::Instance()->Text(data[i].text, "font", m_position.m_x, ypos, cl, Game::Instance()->getRenderer());
-		/*if (i == selected && data[i].showElements)
-		{
-			for (auto x : data[i].elements) {
-				AssetsManager::Instance()->Text(x, "font", m_position.m_x + 20, ypos, cl, Game::Instance()->getRenderer());
-				ypos += 20;
-			}
-		}*/
+		if (data[i].element != -1) xpos += 50;
+		AssetsManager::Instance()->Text(data[i].text, "font", xpos, ypos, cl, Game::Instance()->getRenderer());
 		ypos += 20;
+		if (ypos > m_position.m_y + m_height) break;
 	}
 }
 
