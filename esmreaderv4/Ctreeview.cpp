@@ -42,12 +42,18 @@ void Ctreeview::update() {
 }
 
 void Ctreeview::draw() {
-	//CHANGE THIS. Create a texture in the constructor and store it until label destruction.
 	int ypos = m_position.m_y;
 	for (int i = index; i < data.size(); i++) {
-		SDL_Color cl = SDL_Color({ 255,255,255,0});
+		SDL_Color cl = SDL_Color({ 255,255,255,0 });
 		if (i == selected) cl = SDL_Color({ 128,128,128,0 });
-		AssetsManager::Instance()->Text(data[i], "font", m_position.m_x, ypos, cl, Game::Instance()->getRenderer());
+		AssetsManager::Instance()->Text(data[i].text, "font", m_position.m_x, ypos, cl, Game::Instance()->getRenderer());
+		/*if (i == selected && data[i].showElements)
+		{
+			for (auto x : data[i].elements) {
+				AssetsManager::Instance()->Text(x, "font", m_position.m_x + 20, ypos, cl, Game::Instance()->getRenderer());
+				ypos += 20;
+			}
+		}*/
 		ypos += 20;
 	}
 }

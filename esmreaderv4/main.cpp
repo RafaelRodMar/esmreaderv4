@@ -168,14 +168,27 @@ bool Game::init(const char* title, int xpos, int ypos, int width,
 	readESM("c:/JuegosEstudio/Morrowind/Data Files/morrowind.esm");
 	std::cout << "Time file read: " << st.EllapsedMilliseconds() << std::endl;
 
-	std::vector<std::string> cells;
-	for (int i = 0; i < vcell.size();i++) {
+	std::vector<CellNode> cellNodes;
+	for (int i = 0; i < vcell.size(); i++) {
+		CellNode cn;
+		cn.type = 0;
+		cn.cellIndex = i;
 		if (vcell[i].name == "")
-			cells.push_back(to_string(i) + " (no name) " + vcell[i].regionName);
+		{
+			cn.text = to_string(i) + " (no name) " + vcell[i].regionName;
+		}
 		else
-			cells.push_back(to_string(i) + " " + vcell[i].name + " " + vcell[i].regionName);
+		{
+			cn.text = to_string(i) + " " + vcell[i].name + " " + vcell[i].regionName;
+		}
+
+		for (int j = 0; j < vcell[i].persistentRefs.size(); j++) {
+			cn.elements.push_back(vcell[i].persistentRefs[j].name);
+		}
+		cellNodes.push_back(cn);
 	}
-	tree->setData(cells);
+
+	tree->setData(cellNodes);
 
 	return true;
 }
