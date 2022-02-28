@@ -11,6 +11,8 @@
 #include "Clabel.h"
 #include "Ctreeview.h"
 #include "Ccontainer.h"
+#include "Hierarchy.h"
+#include "Inspector.h"
 
 ////Game States
 enum GAMESTATES {SPLASH, MENU, LOAD_LEVEL, GAME, END_GAME};
@@ -66,8 +68,10 @@ private:
 	bool isCollide(Entity *a, Entity *b);
 	bool isCollideRect(Entity *a, Entity *b);
 
-	Ccontainer* hierarchy =  nullptr;
-	Ccontainer* inspector = nullptr;
+	/*Ccontainer* hierarchy =  nullptr;
+	Ccontainer* inspector = nullptr;*/
+	Hierarchy* hierarchy = nullptr;
+	Inspector* inspector = nullptr;
 
 	bool m_bRunning;
 	int m_gameWidth;

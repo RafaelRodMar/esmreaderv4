@@ -28,7 +28,9 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="Hierarchy.cpp" />
     <ClCompile Include="InputHandler.cpp" />
+    <ClCompile Include="Inspector.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Vector2D.cpp" />
   </ItemGroup>
@@ -40,7 +42,9 @@
     <ClInclude Include="Entity.h" />
     <ClInclude Include="esmreader.h" />
     <ClInclude Include="game.h" />
+    <ClInclude Include="Hierarchy.h" />
     <ClInclude Include="InputHandler.h" />
+    <ClInclude Include="Inspector.h" />
     <ClInclude Include="json.hpp" />
     <ClInclude Include="Vector2D.h" />
   </ItemGroup>

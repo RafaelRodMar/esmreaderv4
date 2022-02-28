@@ -145,55 +145,17 @@ bool Game::init(const char* title, int xpos, int ypos, int width,
 	AssetsManager::Instance()->loadAssetsJson(); //ahora con formato json
 	Mix_Volume(-1, 16); //adjust sound/music volume for all channels
 
-	//Inspector container
-	inspector = new Ccontainer(Vector2D(Game::Instance()->getGameWidth() - 500, 0), 500, Game::Instance()->getGameHeight(), "Inspector");
-	Clabel* inspLabel = new Clabel(Vector2D(0, 0), 60, 20, "Inspector");
-	inspector->addEntity(inspLabel);
-	entities.push_back(inspector);
-
-	//Hierarchy container
-	hierarchy = new Ccontainer(Vector2D(0, 0), 370, 600, "Hierarchy");
-	Clabel* hierarLabel = new Clabel(Vector2D(0, 0), 60, 20, "Hierarchy");
-	hierarchy->addEntity(hierarLabel);
-	Ctreeview* tree = new Ctreeview(Vector2D(0, 0), 100, 100);
-	tree->m_width = hierarchy->m_width;
-	tree->m_height = hierarchy->m_height;
-	hierarchy->addEntity(tree);
+	hierarchy = new Hierarchy(Vector2D(0, 0), 370, 600);
 	entities.push_back(hierarchy);
+	inspector = new Inspector(Vector2D(Game::Instance()->getGameWidth() - 500, 0), 500, Game::Instance()->getGameHeight());
+	entities.push_back(inspector);
 
 	state = GAME;
 
-	Stopwatch st;
+	/*Stopwatch st;
 	st.Start(0);
 	readESM("c:/JuegosEstudio/Morrowind/Data Files/morrowind.esm");
-	std::cout << "Time file read: " << st.EllapsedMilliseconds() << std::endl;
-
-	std::vector<CellNode> cellNodes;
-	for (int i = 0; i < vcell.size(); i++) {
-		CellNode cn;
-		cn.cell = i;
-		cn.element = -1;
-		cn.show = true;
-		if (vcell[i].name == "")
-		{
-			cn.text = to_string(i) + " (no name) " + vcell[i].regionName;
-		}
-		else
-		{
-			cn.text = to_string(i) + " " + vcell[i].name + " " + vcell[i].regionName;
-		}
-		cellNodes.push_back(cn);
-
-		for (int j = 0; j < vcell[i].persistentRefs.size(); j++) {
-			cn.cell = i;
-			cn.element = j;
-			cn.show = false;
-			cn.text = vcell[i].persistentRefs[j].name;
-			cellNodes.push_back(cn);
-		}
-	}
-
-	tree->setData(cellNodes);
+	std::cout << "Time file read: " << st.EllapsedMilliseconds() << std::endl;*/
 
 	return true;
 }
