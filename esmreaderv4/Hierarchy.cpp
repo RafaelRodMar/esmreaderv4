@@ -5,26 +5,6 @@ Hierarchy::Hierarchy(Vector2D pos, int width, int height) :
 	Entity("", pos, Vector2D(0, 0), width, height, 0, 0, 0, 0.0, 0) {
 	m_name = "Hierarchy";
 	ctree = new Ctreeview(Vector2D(0, 20), m_width, m_height);
-
-	std::vector<CellNode> cellNodes;
-	for (int i = 0; i < 100; i++) {
-		CellNode cn;
-		cn.cell = i;
-		cn.element = -1;
-		cn.show = true;
-		cn.text = to_string(i) + " nombre ";
-
-		cellNodes.push_back(cn);
-
-		/*for (int j = 0; j < vcell[i].persistentRefs.size(); j++) {
-			cn.cell = i;
-			cn.element = j;
-			cn.show = false;
-			cn.text = vcell[i].persistentRefs[j].name;
-			cellNodes.push_back(cn);
-		}*/
-	}
-	ctree->setData(cellNodes);
 }
 
 Hierarchy::~Hierarchy() {
