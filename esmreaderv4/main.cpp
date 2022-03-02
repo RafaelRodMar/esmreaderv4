@@ -164,6 +164,7 @@ bool Game::init(const char* title, int xpos, int ypos, int width,
 	hierarchy->ctree->setData();
 
 	inspector = new Inspector(Vector2D(Game::Instance()->getGameWidth() - 500, 0), 500, Game::Instance()->getGameHeight());
+	inspector->hierarchy = hierarchy;
 	entities.push_back(inspector);
 
 	state = GAME;
