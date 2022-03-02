@@ -159,7 +159,7 @@ bool Game::init(const char* title, int xpos, int ypos, int width,
 		vstr.push_back(to_string(j) + " Element");
 	}
 	for (int i = 0; i < 100; i++) {
-		hierarchy->ctree->addData(to_string(i) + " Cell", false, vstr);
+		hierarchy->ctree->addData(to_string(i) + " Cell", vstr);
 	}
 	hierarchy->ctree->setData();
 

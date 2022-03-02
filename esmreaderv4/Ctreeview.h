@@ -25,15 +25,16 @@ public:
 	std::vector<CellNode> data;
 	int index = 0;
 	int selected = -1;
+	int cellSelected = -1;
 
 	Ctreeview(Vector2D pos, int width, int height);
 	Ctreeview(const string &Texture, Vector2D pos, Vector2D vel, int Width, int Height, int nFrames,
 		int row, int cframe, double Angle, int radius, std::string text, std::string font);
 
-	void addData(std::string str, bool b, std::vector<std::string> vstr) {
+	void addData(std::string str, std::vector<std::string> vstr) {
 		TreeViewData tvd;
 		tvd.text = str;
-		tvd.show = b;
+		tvd.show = false;
 		tvd.elements = vstr;
 		tvdata.push_back(tvd);
 	}
@@ -47,8 +48,9 @@ public:
 			cn.show = tvdata[i].show;
 			cn.text = tvdata[i].text;
 			data.push_back(cn);
-			if (tvdata[i].show)
+			if (cellSelected == i)
 			{
+				selected = i;
 				if (tvdata[i].elements.size() > 0)
 				{
 					for (int j = 0; j < tvdata[i].elements.size(); j++) {
