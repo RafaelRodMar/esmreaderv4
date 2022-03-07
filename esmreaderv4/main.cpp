@@ -95,6 +95,9 @@ bool Game::init(const char* title, int xpos, int ypos, int width,
 		xpos = ypos = 30;
 		width = DM.w - 50;
 		height = DM.h - 100;
+		//store width and height
+		m_gameWidth = width;
+		m_gameHeight = height;
 
 		m_pWindow = SDL_CreateWindow(title, xpos, ypos,
 			width, height, flags);
