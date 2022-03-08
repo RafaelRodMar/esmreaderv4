@@ -25,16 +25,12 @@ struct GMST{
 	float floatValue = 0.0;
 };
 
-std::vector<GMST> vgmst; //vector of game settings
-
 //Global values records. type = short,long,float = s,l,f
 struct GLOB{
 	std::string name = "";
 	std::string type = "";
 	float value = 0.0;
 };
-
-std::vector<GLOB> vglob; //vector of global values
 
 //used by CLAS records
 struct ClassData {
@@ -90,8 +86,6 @@ struct CLAS{
 	std::string description = "";
 };
 
-std::vector<CLAS> vclas;  //vector of character classes
-
 //used by FACT records
 struct RankData {
 	long attribute1;
@@ -118,8 +112,6 @@ struct FACT {
 	FactionData fd;
 	std::vector< std::pair<std::string, long int> > factionReaction;
 };
-
-std::vector<FACT> vfact;
 
 //used by RACE records
 struct SkillBonuses {
@@ -151,8 +143,6 @@ struct RACE{
 	std::string description = "";
 };
 
-std::vector<RACE> vrace;
-
 //used by SOUN records
 struct SoundData {
 	char volume; //(0 = 0.00, 255 = 1.00)
@@ -167,8 +157,6 @@ struct SOUN{
 	SoundData sd;
 };
 
-std::vector<SOUN> vsoun;
-
 //used by SKIL records
 struct SkillData {
  	long int attribute;
@@ -182,9 +170,6 @@ struct SKIL {
 	SkillData sd;
 	std::string description = "";
 };
-
-std::vector<SKIL> vskil;
-
 
 //used by MGEF records
 struct MagicEffectData {
@@ -221,8 +206,6 @@ struct MGEF {
 	std::string areaSound = "";
 };
 
-std::vector<MGEF> vmgef;
-
 //used by SCPT records
 struct ScriptHeader {
  	char name[32];
@@ -240,8 +223,6 @@ struct SCPT {
 	std::vector<char> compiledScpt;
 	std::string textScpt;
 };
-
-std::vector<SCPT> vscpt;
 
 //used by REGN registers
 struct WeatherData {
@@ -268,8 +249,6 @@ struct REGN{
 	std::vector<SoundRecord> sounds;
 };
 
-std::vector<REGN> vregn;
-
 //birth sign records
 struct BSGN{
 	std::string name = "";
@@ -279,8 +258,6 @@ struct BSGN{
 	std::vector<std::string> spell_ability;
 };
 
-std::vector<BSGN> vbsgn;
-
 //landscape textures records
 struct LTEX {
 	std::string name = "";
@@ -288,15 +265,11 @@ struct LTEX {
 	std::string filename = "";
 };
 
-std::vector<LTEX> vltex;
-
 //static records
 struct STAT {
 	std::string name = "";
 	std::string model = "";
 };
-
-std::vector<STAT> vstat;
 
 //door definition records
 struct DOOR {
@@ -307,8 +280,6 @@ struct DOOR {
 	std::string openSound = "";
 	std::string closeSound = "";
 };
-
-std::vector<DOOR> vdoor;
 
 //used by MISC records
 struct MiscItemData {
@@ -327,8 +298,6 @@ struct MISC {
 	std::string enchantment = "";
 	std::string icon = "";
 };
-
-std::vector<MISC> vmisc;
 
 //used by WEAP records
 struct WeaponData { //0x20 bytes binary
@@ -374,8 +343,6 @@ struct WEAP {
 	std::string script = "";
 };
 
-std::vector<WEAP> vweap;
-
 //used by CONT records
 struct Item {
  	long int count;
@@ -392,8 +359,6 @@ struct CONT {
 	std::string script = "";
 	std::vector<Item> items;
 };
-
-std::vector<CONT> vcont;
 
 //used by SPEL records
 struct SpellData {
@@ -427,8 +392,6 @@ struct SPEL {
 	SpellData sd;
 	std::vector<EnchantmentsData> ed;
 };
-
-std::vector<SPEL> vspel;
 
 //used by CREA and NPC_ records
 struct CreatureData {
@@ -568,8 +531,6 @@ struct CREA {
 	float scale = 0.0;
 };
 
-std::vector<CREA> vcrea;
-
 //used by BODY registers
 struct BodyPartData{
  	uint8_t part; 			/*0 = Head
@@ -599,8 +560,6 @@ struct BODY {
 	std::string fullName = "";
 	BodyPartData bd;
 };
-
-std::vector<BODY> vbody;
 
 //used by LIGH records
 struct LightData{
@@ -634,8 +593,6 @@ struct LIGH {
 	LightData ld;
 };
 
-std::vector<LIGH> vligh;
-
 //used by ENCH records
 struct EnchantData{
  	uint32_t type; //0 = cast once, 1 = cast strikes, 2 = cast when used
@@ -662,8 +619,6 @@ struct ENCH {
 	EnchantData ed;
 	std::vector< Enchantments > enchantments;
 };
-
-std::vector<ENCH> vench;
 
 //used by NPC_ records
 
@@ -726,8 +681,6 @@ struct NPC_ {
 	std::vector< EscortPackage > ai_e;
 	float scale = 0.0;
 };
-
-std::vector<NPC_> vnpc_;
 
 //used by ARMO records
 struct ArmourData {
@@ -794,8 +747,6 @@ struct ARMO{
 	std::string script = "";
 };
 
-std::vector<ARMO> varmo;
-
 //used by CLOT records
 struct ClothingData {
 	long int type; /*0 = Pants
@@ -858,8 +809,6 @@ struct CLOT{
 	std::string script = "";
 };
 
-std::vector<CLOT> vclot;
-
 //used by REPA records
 struct RepairData {
 	float weight;
@@ -878,8 +827,6 @@ struct REPA{
 	std::string script = "";
 };
 
-std::vector<REPA> vrepa;
-
 //activator records
 struct ACTI{
 	std::string name = "";
@@ -887,8 +834,6 @@ struct ACTI{
 	std::string model = "";
 	std::string script = "";
 };
-
-std::vector<ACTI> vacti;
 
 //used by APPA records
 struct ApparatusData {
@@ -908,8 +853,6 @@ struct APPA{
 	ApparatusData ad;
 };
 
-std::vector<APPA> vappa;
-
 //used by LOCK records
 struct LockpickingData {
 	float weight;
@@ -927,8 +870,6 @@ struct LOCK{
 	std::string icon = "";
 	LockpickingData ld;
 };
-
-std::vector<LOCK> vlock;
 
 //used by PROB records
 struct ProbeData {
@@ -948,8 +889,6 @@ struct PROB{
 	ProbeData pd;
 };
 
-std::vector<PROB> vprob;
-
 //used by INGR records
 struct IngredientData {
 	float weight;
@@ -968,8 +907,6 @@ struct INGR{
 	std::string icon = "";
 	IngredientData id;
 };
-
-std::vector<INGR> vingr;
 
 //used by BOOK records
 struct BookData {
@@ -991,8 +928,6 @@ struct BOOK {
 	std::string enchantment = "";
 	BookData bd;
 };
-
-std::vector<BOOK> vbook;
 
 //used by ALCH records
 struct AlchemyData {
@@ -1023,8 +958,6 @@ struct ALCH {
 	std::vector<AlchemyEnchantments> ed;
 };
 
-std::vector<ALCH> valch;
-
 //leveld items records
 struct LEVI{
 	std::string name = "";
@@ -1034,8 +967,6 @@ struct LEVI{
 	std::vector< std::pair<std::string, uint16_t> > item;
 };
 
-std::vector<LEVI> vlevi;
-
 //leveld creatures records
 struct LEVC{
 	std::string name = "";
@@ -1044,8 +975,6 @@ struct LEVC{
 	long int count = 0;
 	std::vector< std::pair<std::string, uint16_t> > item;
 };
-
-std::vector<LEVC> vlevc;
 
 //used by CELL records
 struct CellData{
@@ -1118,8 +1047,6 @@ struct CELL{
 	std::vector<FormReference> temporaryRefs;
 };
 
-std::vector<CELL> vcell;
-
 //used by LAND registers
 struct Coord{
 	long int x,y;
@@ -1156,8 +1083,6 @@ struct LAND{
 	RGB vertexColors[65][65];
 	uint16_t textureIndices[16][16]; //each value corresponds to the index INTV value from a LTEX record.
 };
-
-std::vector<LAND> vland;
 
 //used by PGRD records
 struct PathData {
@@ -1201,8 +1126,6 @@ struct PGRD{
 	indices 0, 6, 3, and 2.*/
 };
 
-std::vector<PGRD> vpgrd;
-
 //sound generator registers
 struct SNDG{
 	std::string name = ""; /*ID - this appears to be generated from the creature name 
@@ -1221,8 +1144,6 @@ struct SNDG{
 	std::string creatureName = "";
 	std::string soundID = "";
 };
-
-std::vector<SNDG> vsndg;
 
 //used by INFO records
 struct InfoData {
@@ -1313,5 +1234,3 @@ struct DIAL{
 							4 = Journal*/
 	std::vector<INFO> vinfo;
 };
-
-std::vector<DIAL> vdial;

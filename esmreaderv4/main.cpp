@@ -10,7 +10,6 @@
 #include <string>
 #include <map>
 #include <time.h>
-#include "esmreader.h"
 #include "game.h"
 #include "json.hpp"
 #include <chrono>

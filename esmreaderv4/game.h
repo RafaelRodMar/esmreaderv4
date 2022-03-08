@@ -7,6 +7,7 @@
 #include "Vector2D.h"
 #include "AssetsManager.h"
 #include "InputHandler.h"
+#include "esmreader.h"
 #include "Entity.h"
 #include "Clabel.h"
 #include "Ctreeview.h"
@@ -53,6 +54,48 @@ public:
 	Vector2D mousepos;
 	std::string lastButtonClicked = "";
 	ShowControl* showControl;
+
+	//vectors with game data
+	std::vector<GMST> vgmst; //vector of game settings
+	std::vector<GLOB> vglob; //vector of global values
+	std::vector<CLAS> vclas;  //vector of character classes
+	std::vector<FACT> vfact;
+	std::vector<RACE> vrace;
+	std::vector<SOUN> vsoun;
+	std::vector<SKIL> vskil;
+	std::vector<MGEF> vmgef;
+	std::vector<SCPT> vscpt;
+	std::vector<REGN> vregn;
+	std::vector<BSGN> vbsgn;
+	std::vector<LTEX> vltex;
+	std::vector<STAT> vstat;
+	std::vector<DOOR> vdoor;
+	std::vector<MISC> vmisc;
+	std::vector<WEAP> vweap;
+	std::vector<CONT> vcont;
+	std::vector<SPEL> vspel;
+	std::vector<CREA> vcrea;
+	std::vector<BODY> vbody;
+	std::vector<LIGH> vligh;
+	std::vector<ENCH> vench;
+	std::vector<NPC_> vnpc_;
+	std::vector<ARMO> varmo;
+	std::vector<CLOT> vclot;
+	std::vector<REPA> vrepa;
+	std::vector<ACTI> vacti;
+	std::vector<APPA> vappa;
+	std::vector<LOCK> vlock;
+	std::vector<PROB> vprob;
+	std::vector<INGR> vingr;
+	std::vector<BOOK> vbook;
+	std::vector<ALCH> valch;
+	std::vector<LEVI> vlevi;
+	std::vector<LEVC> vlevc;
+	std::vector<CELL> vcell; //vector of game cells
+	std::vector<LAND> vland;
+	std::vector<PGRD> vpgrd;
+	std::vector<SNDG> vsndg;
+	std::vector<DIAL> vdial;
 
 private:
 	Game();
