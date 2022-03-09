@@ -152,7 +152,7 @@ bool Game::init(const char* title, int xpos, int ypos, int width,
 	readESM("c:/JuegosEstudio/Morrowind/Data Files/morrowind.esm");
 	std::cout << "Time file read: " << st.EllapsedMilliseconds() << std::endl;
 
-	hierarchy = new Hierarchy(Vector2D(0, 0), 370, 600);
+	hierarchy = new Hierarchy(Vector2D(0, 0), 315, 600);
 	entities.push_back(hierarchy);
 
 	inspector = new Inspector(Vector2D(Game::Instance()->getGameWidth() - 500, 0), 500, Game::Instance()->getGameHeight());
@@ -1428,6 +1428,7 @@ void Game::handleEvents()
 			mouseClicked = true;
 			mousepos.m_x = InputHandler::Instance()->getMousePosition()->m_x;
 			mousepos.m_y = InputHandler::Instance()->getMousePosition()->m_y;
+			std::cout << mousepos.m_x << std::endl;
 		}
 		
 		for (auto i = entities.begin(); i != entities.end(); i++)
