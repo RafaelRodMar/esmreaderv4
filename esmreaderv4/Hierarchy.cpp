@@ -5,6 +5,21 @@ Hierarchy::Hierarchy(Vector2D pos, int width, int height) :
 	Entity("", pos, Vector2D(0, 0), width, height, 0, 0, 0, 0.0, 0) {
 	m_name = "Hierarchy";
 	ctree = new Ctreeview(Vector2D(0, 20), m_width, m_height);
+
+	//fill the tree view control with data
+	for (int i = 0; i < Game::Instance()->vcell.size(); i++) {
+		std::vector<std::string> velements;
+		for (int j = 0; j < Game::Instance()->vcell[i].persistentRefs.size(); j++) {
+			velements.push_back(Game::Instance()->vcell[i].persistentRefs[j].name);
+		}
+
+		std::string str = Game::Instance()->vcell[i].name;
+		if (str == "")
+			ctree->addData(to_string(i) + " (no name) " + Game::Instance()->vcell[i].regionName, velements);
+		else
+			ctree->addData(to_string(i) + Game::Instance()->vcell[i].name, velements);
+	}
+	ctree->setData();
 }
 
 Hierarchy::~Hierarchy() {

@@ -26,6 +26,8 @@ void Ctreeview::handleEvents() {
 		{
 			if (index < data.size()) index += 10;
 		}
+		if (index < 0) index = 0;
+		if (index >= data.size()) index = data.size() - 1;
 		InputHandler::Instance()->setMouseWheelToFalse();
 
 		if (Game::Instance()->mouseClicked)

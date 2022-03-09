@@ -168,7 +168,7 @@ void parseGMST(std::vector<char> &buffer) {
 	//std::cout << "  String: " << g.stringValue << std::endl;
 	//std::cout << "  Int value: " << g.intValue << std::endl;
 	//std::cout << "  Float Value: " << g.floatValue << std::endl;
-	vgmst.push_back(g);
+	Game::Instance()->vgmst.push_back(g);
 }
 void parseGLOB(std::vector<char> &buffer) {
 
@@ -192,7 +192,7 @@ void parseGLOB(std::vector<char> &buffer) {
 	//std::cout << "  Name: " << g.name << std::endl;
 	//std::cout << "  Type: " << g.type << std::endl;
 	//std::cout << "  Value: " << g.value << std::endl;
-	vglob.push_back(g);
+	Game::Instance()->vglob.push_back(g);
 }
 
 void parseCLAS(std::vector<char> &buffer) {
@@ -214,7 +214,7 @@ void parseCLAS(std::vector<char> &buffer) {
 	}
 
 	//std::cout << "  " << c.name << " " << c.fullName << " " << c.description << std::endl;
-	vclas.push_back(c);
+	Game::Instance()->vclas.push_back(c);
 }
 
 void parseFACT(std::vector<char> &buffer) {
@@ -245,7 +245,7 @@ void parseFACT(std::vector<char> &buffer) {
 	for (auto s : f.rankName) {
 		//std::cout << s << std::endl;
 	}
-	vfact.push_back(f);
+	Game::Instance()->vfact.push_back(f);
 }
 
 void parseRACE(std::vector<char> &buffer) {
@@ -272,7 +272,7 @@ void parseRACE(std::vector<char> &buffer) {
 	for (auto x : r.special) {
 		//std::cout << x << std::endl;
 	}
-	vrace.push_back(r);
+	Game::Instance()->vrace.push_back(r);
 }
 
 void parseSOUN(std::vector<char> &buffer) {
@@ -293,7 +293,7 @@ void parseSOUN(std::vector<char> &buffer) {
 	}
 
 	//std::cout << s.fullName << std::endl;
-	vsoun.push_back(s);
+	Game::Instance()->vsoun.push_back(s);
 }
 
 void parseSKIL(std::vector<char> &buffer) {
@@ -314,7 +314,7 @@ void parseSKIL(std::vector<char> &buffer) {
 	}
 
 	//std::cout << s.description << std::endl;
-	vskil.push_back(s);
+	Game::Instance()->vskil.push_back(s);
 }
 
 void parseMGEF(std::vector<char> &buffer) {
@@ -351,7 +351,7 @@ void parseMGEF(std::vector<char> &buffer) {
 	//std::cout << m.hitVisual << " // " << m.hitSound << std::endl;
 	//std::cout << m.areaVisual << " // " << m.areaSound << std::endl;
 	//std::cout << m.description << std::endl;
-	vmgef.push_back(m);
+	Game::Instance()->vmgef.push_back(m);
 }
 
 void parseSCPT(std::vector<char> &buffer) {
@@ -386,7 +386,7 @@ void parseSCPT(std::vector<char> &buffer) {
 		if (x.first == "SCDT") s.compiledScpt = x.second;
 		if (x.first == "SCTX") s.textScpt = getString(x.second);
 	}
-	vscpt.push_back(s);
+	Game::Instance()->vscpt.push_back(s);
 }
 
 void parseREGN(std::vector<char> &buffer) {
@@ -418,7 +418,7 @@ void parseREGN(std::vector<char> &buffer) {
 	for (int i = 0; i < r.sounds.size(); i++) {
 		//std::cout << "snd: " << std::string(r.sounds[i].soundName) << std::endl;
 	}
-	vregn.push_back(r);
+	Game::Instance()->vregn.push_back(r);
 }
 
 void parseBSGN(std::vector<char> &buffer) {
@@ -444,7 +444,7 @@ void parseBSGN(std::vector<char> &buffer) {
 	for (int i = 0; i < b.spell_ability.size(); i++) {
 		//std::cout << "spell/ability: " << b.spell_ability[i] << std::endl;
 	}
-	vbsgn.push_back(b);
+	Game::Instance()->vbsgn.push_back(b);
 }
 
 void parseLTEX(std::vector<char> &buffer) {
@@ -465,7 +465,7 @@ void parseLTEX(std::vector<char> &buffer) {
 	}
 
 	//std::cout << l.name << " : " << l.filename << std::endl;
-	vltex.push_back(l);
+	Game::Instance()->vltex.push_back(l);
 }
 
 void parseSTAT(std::vector<char> &buffer) {
@@ -485,7 +485,7 @@ void parseSTAT(std::vector<char> &buffer) {
 	}
 
 	//std::cout << s.name << " : " << s.model << std::endl;
-	vstat.push_back(s);
+	Game::Instance()->vstat.push_back(s);
 }
 
 void parseDOOR(std::vector<char> &buffer) {
@@ -509,7 +509,7 @@ void parseDOOR(std::vector<char> &buffer) {
 	}
 
 	//std::cout << d.fullName << " : " << d.model << std::endl;
-	vdoor.push_back(d);
+	Game::Instance()->vdoor.push_back(d);
 }
 
 void parseMISC(std::vector<char> &buffer) {
@@ -534,7 +534,7 @@ void parseMISC(std::vector<char> &buffer) {
 	}
 
 	//std::cout << m.fullName << " : " << m.icon << std::endl;
-	vmisc.push_back(m);
+	Game::Instance()->vmisc.push_back(m);
 }
 
 void parseWEAP(std::vector<char> &buffer) {
@@ -559,7 +559,7 @@ void parseWEAP(std::vector<char> &buffer) {
 	}
 
 	//std::cout << w.fullName << " : " << w.model << std::endl;
-	vweap.push_back(w);
+	Game::Instance()->vweap.push_back(w);
 }
 
 void parseCONT(std::vector<char> &buffer) {
@@ -589,7 +589,7 @@ void parseCONT(std::vector<char> &buffer) {
 	}
 
 	//std::cout << c.fullName << " : " << c.model << std::endl;
-	vcont.push_back(c);
+	Game::Instance()->vcont.push_back(c);
 }
 
 void parseSPEL(std::vector<char> &buffer) {
@@ -616,7 +616,7 @@ void parseSPEL(std::vector<char> &buffer) {
 	}
 
 	//std::cout << s.fullName << std::endl;
-	vspel.push_back(s);
+	Game::Instance()->vspel.push_back(s);
 }
 
 void parseCREA(std::vector<char> &buffer) {
@@ -689,7 +689,7 @@ void parseCREA(std::vector<char> &buffer) {
 	}
 
 	//std::cout << c.fullName << " " << c.model << std::endl;
-	vcrea.push_back(c);
+	Game::Instance()->vcrea.push_back(c);
 }
 
 void parseBODY(std::vector<char> &buffer) {
@@ -711,7 +711,7 @@ void parseBODY(std::vector<char> &buffer) {
 	}
 
 	//std::cout << b.fullName << " " << b.model << std::endl;
-	vbody.push_back(b);
+	Game::Instance()->vbody.push_back(b);
 }
 
 void parseLIGH(std::vector<char> &buffer) {
@@ -736,7 +736,7 @@ void parseLIGH(std::vector<char> &buffer) {
 	}
 
 	//std::cout << l.fullName << " " << l.model << std::endl;
-	vligh.push_back(l);
+	Game::Instance()->vligh.push_back(l);
 }
 
 void parseENCH(std::vector<char> &buffer) {
@@ -762,7 +762,7 @@ void parseENCH(std::vector<char> &buffer) {
 	}
 
 	//std::cout << e.name << std::endl;
-	vench.push_back(e);
+	Game::Instance()->vench.push_back(e);
 }
 
 void parseNPC_(std::vector<char> &buffer) {
@@ -851,7 +851,7 @@ void parseNPC_(std::vector<char> &buffer) {
 	}
 
 	//std::cout << n.fullName << " " << n.model << std::endl;
-	vnpc_.push_back(n);
+	Game::Instance()->vnpc_.push_back(n);
 }
 void parseARMO(std::vector<char> &buffer) {
 
@@ -885,7 +885,7 @@ void parseARMO(std::vector<char> &buffer) {
 	}
 
 	//std::cout << a.fullName << " " << a.model << std::endl;
-	varmo.push_back(a);
+	Game::Instance()->varmo.push_back(a);
 }
 
 void parseCLOT(std::vector<char> &buffer) {
@@ -920,7 +920,7 @@ void parseCLOT(std::vector<char> &buffer) {
 	}
 
 	//std::cout << c.fullName << " " << c.model << std::endl;
-	vclot.push_back(c);
+	Game::Instance()->vclot.push_back(c);
 }
 
 void parseREPA(std::vector<char> &buffer) {
@@ -944,7 +944,7 @@ void parseREPA(std::vector<char> &buffer) {
 	}
 
 	//std::cout << r.fullName << " " << r.model << std::endl;
-	vrepa.push_back(r);
+	Game::Instance()->vrepa.push_back(r);
 }
 
 void parseACTI(std::vector<char> &buffer) {
@@ -966,7 +966,7 @@ void parseACTI(std::vector<char> &buffer) {
 	}
 
 	//std::cout << a.fullName << " " << a.model << std::endl;
-	vacti.push_back(a);
+	Game::Instance()->vacti.push_back(a);
 }
 
 void parseAPPA(std::vector<char> &buffer) {
@@ -990,7 +990,7 @@ void parseAPPA(std::vector<char> &buffer) {
 	}
 
 	//std::cout << a.fullName << " " << a.model << std::endl;
-	vappa.push_back(a);
+	Game::Instance()->vappa.push_back(a);
 }
 
 void parseLOCK(std::vector<char> &buffer) {
@@ -1014,7 +1014,7 @@ void parseLOCK(std::vector<char> &buffer) {
 	}
 
 	//std::cout << l.fullName << " " << l.model << std::endl;
-	vlock.push_back(l);
+	Game::Instance()->vlock.push_back(l);
 }
 
 void parsePROB(std::vector<char> &buffer) {
@@ -1038,7 +1038,7 @@ void parsePROB(std::vector<char> &buffer) {
 	}
 
 	//std::cout << p.fullName << " " << p.model << std::endl;
-	vprob.push_back(p);
+	Game::Instance()->vprob.push_back(p);
 }
 
 void parseINGR(std::vector<char> &buffer) {
@@ -1062,7 +1062,7 @@ void parseINGR(std::vector<char> &buffer) {
 	}
 
 	//std::cout << i.fullName << " " << i.model << std::endl;
-	vingr.push_back(i);
+	Game::Instance()->vingr.push_back(i);
 }
 
 void parseBOOK(std::vector<char> &buffer) {
@@ -1088,7 +1088,7 @@ void parseBOOK(std::vector<char> &buffer) {
 	}
 
 	//std::cout << b.fullName << " " << b.model << std::endl;
-	vbook.push_back(b);
+	Game::Instance()->vbook.push_back(b);
 }
 
 void parseALCH(std::vector<char> &buffer) {
@@ -1118,7 +1118,7 @@ void parseALCH(std::vector<char> &buffer) {
 	}
 
 	//std::cout << a.fullName << " " << a.model << std::endl;
-	valch.push_back(a);
+	Game::Instance()->valch.push_back(a);
 }
 void parseLEVI(std::vector<char> &buffer) {
 
@@ -1141,7 +1141,7 @@ void parseLEVI(std::vector<char> &buffer) {
 		if (x.first == "INTV") l.item.back().second = getuint16_tInt(x.second);
 	}
 	//std::cout << l.name << " " << l.count << std::endl;
-	vlevi.push_back(l);
+	Game::Instance()->vlevi.push_back(l);
 }
 
 void parseLEVC(std::vector<char> &buffer) {
@@ -1165,7 +1165,7 @@ void parseLEVC(std::vector<char> &buffer) {
 		if (x.first == "INTV") c.item.back().second = getuint16_tInt(x.second);
 	}
 	//std::cout << c.name << " " << c.count << std::endl;
-	vlevc.push_back(c);
+	Game::Instance()->vlevc.push_back(c);
 }
 
 void parseCELL(std::vector<char> &buffer) {
@@ -1342,7 +1342,7 @@ void parseCELL(std::vector<char> &buffer) {
 	}
 
 	//std::cout << c.name << " " << c.regionName << std::endl;
-	vcell.push_back(c);
+	Game::Instance()->vcell.push_back(c);
 }
 void parseLAND(std::vector<char> &buffer) {
 
@@ -1364,7 +1364,7 @@ void parseLAND(std::vector<char> &buffer) {
 		if (x.first == "VCLR") memmove((char*)&l.vertexColors, x.second.data(), sizeof(l.vertexColors));
 		if (x.first == "VTEX") memmove((char*)&l.textureIndices, x.second.data(), sizeof(l.textureIndices));
 	}
-	vland.push_back(l);
+	Game::Instance()->vland.push_back(l);
 }
 
 void parsePGRD(std::vector<char> &buffer) {
@@ -1386,7 +1386,7 @@ void parsePGRD(std::vector<char> &buffer) {
 		if (x.first == "PGRC") memmove((char*)&p.connectionList, x.second.data(), subRecordHeader.size);
 	}
 	//std::cout << "BEWARE : probably losing some connection points" << std::endl;
-	vpgrd.push_back(p);
+	Game::Instance()->vpgrd.push_back(p);
 }
 
 void parseSNDG(std::vector<char> &buffer) {
@@ -1408,7 +1408,7 @@ void parseSNDG(std::vector<char> &buffer) {
 	}
 
 	//std::cout << s.soundID << " " << s.name << " " << s.creatureName << std::endl;
-	vsndg.push_back(s);
+	Game::Instance()->vsndg.push_back(s);
 }
 
 void parseDIAL(std::vector<char> &buffer) {
@@ -1427,7 +1427,7 @@ void parseDIAL(std::vector<char> &buffer) {
 		if (x.first == "DATA") d.dialogueType = getuint8_tInt(x.second);
 	}
 	//std::cout << d.name << " " << d.dialogueType << std::endl;
-	vdial.push_back(d);
+	Game::Instance()->vdial.push_back(d);
 }
 
 void parseINFO(std::vector<char> &buffer) {
@@ -1463,7 +1463,7 @@ void parseINFO(std::vector<char> &buffer) {
 		if (x.first == "QSTR") i.questRestart = getuint8_tInt(x.second);
 	}
 	//std::cout << i.name << " " << i.actor << std::endl;
-	vdial.back().vinfo.push_back(i);
+	Game::Instance()->vdial.back().vinfo.push_back(i);
 }
 
 bool isValid(std::string name) {

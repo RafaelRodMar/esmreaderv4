@@ -53,6 +53,7 @@ public:
 				selected = i;
 				if (tvdata[i].elements.size() > 0)
 				{
+					index = i;
 					for (int j = 0; j < tvdata[i].elements.size(); j++) {
 						CellNode cne;
 						cne.cell = i;

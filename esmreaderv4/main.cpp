@@ -147,23 +147,13 @@ bool Game::init(const char* title, int xpos, int ypos, int width,
 	AssetsManager::Instance()->loadAssetsJson(); //ahora con formato json
 	Mix_Volume(-1, 16); //adjust sound/music volume for all channels
 
-	/*Stopwatch st;
+	Stopwatch st;
 	st.Start(0);
 	readESM("c:/JuegosEstudio/Morrowind/Data Files/morrowind.esm");
-	std::cout << "Time file read: " << st.EllapsedMilliseconds() << std::endl;*/
+	std::cout << "Time file read: " << st.EllapsedMilliseconds() << std::endl;
 
 	hierarchy = new Hierarchy(Vector2D(0, 0), 370, 600);
 	entities.push_back(hierarchy);
-
-	//fill with fake data
-	std::vector<std::string> vstr;
-	for (int j = 0; j < 10; j++) {
-		vstr.push_back(to_string(j) + " Element");
-	}
-	for (int i = 0; i < 100; i++) {
-		hierarchy->ctree->addData(to_string(i) + " Cell", vstr);
-	}
-	hierarchy->ctree->setData();
 
 	inspector = new Inspector(Vector2D(Game::Instance()->getGameWidth() - 500, 0), 500, Game::Instance()->getGameHeight());
 	inspector->hierarchy = hierarchy;
