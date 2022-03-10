@@ -32,9 +32,9 @@ void Ctreeview::handleEvents() {
 
 		if (Game::Instance()->mouseClicked)
 		{
-			int y = v->m_y / 20 - 1;
-			int newSelected = index + y;
-			if (newSelected > data.size()) newSelected = data.size() - 1;
+			offset = v->m_y / 20 - 1;
+			int newSelected = index + offset;
+			if (newSelected >= data.size()) newSelected = data.size() - 1;
 			if (newSelected != selected)
 			{
 				//if it is a cell then reload new data

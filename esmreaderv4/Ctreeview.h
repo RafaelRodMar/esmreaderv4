@@ -23,7 +23,8 @@ public:
 	std::vector < TreeViewData > tvdata;
 
 	std::vector<CellNode> data;
-	int index = 0;
+	int index = 0; //the first entry shown
+	int offset = 0; //mouse click
 	int selected = -1;
 	int cellSelected = -1;
 
@@ -53,7 +54,10 @@ public:
 				selected = i;
 				if (tvdata[i].elements.size() > 0)
 				{
-					index = i;
+					index = i - offset;
+					if (index < 0) index = 0;
+					if (index >= data.size()) index = data.size() - 1;
+
 					for (int j = 0; j < tvdata[i].elements.size(); j++) {
 						CellNode cne;
 						cne.cell = i;

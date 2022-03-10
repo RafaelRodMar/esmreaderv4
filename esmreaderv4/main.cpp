@@ -1428,7 +1428,7 @@ void Game::handleEvents()
 			mouseClicked = true;
 			mousepos.m_x = InputHandler::Instance()->getMousePosition()->m_x;
 			mousepos.m_y = InputHandler::Instance()->getMousePosition()->m_y;
-			std::cout << mousepos.m_x << std::endl;
+			//std::cout << mousepos.m_x << std::endl;
 		}
 		
 		for (auto i = entities.begin(); i != entities.end(); i++)
