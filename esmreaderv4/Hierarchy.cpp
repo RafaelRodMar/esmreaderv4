@@ -17,7 +17,7 @@ Hierarchy::Hierarchy(Vector2D pos, int width, int height) :
 		if (str == "")
 			ctree->addData(to_string(i) + " (no name) " + Game::Instance()->vcell[i].regionName, velements);
 		else
-			ctree->addData(to_string(i) + Game::Instance()->vcell[i].name, velements);
+			ctree->addData(to_string(i) + " " + Game::Instance()->vcell[i].name, velements);
 	}
 	ctree->setData();
 }
